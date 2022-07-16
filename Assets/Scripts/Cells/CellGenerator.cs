@@ -7,6 +7,10 @@ using UnityEngine;
 public class CellGenerator : MonoBehaviour
 {
     public GameObject Prefab;
+    public Material MaterialWhenVisible;
+    public Material MaterialWhenNotVisible;
+    public TowerSelectionScript TowerSelectionScript;
+    public GameObject PathPrefab;
 
     public float Spacing;
     public int NumXElements;
@@ -25,6 +29,7 @@ public class CellGenerator : MonoBehaviour
 
                 CellScript cellScript = newCell.GetComponent<CellScript>();
                 cellScript.SetCellCoordinate(x, y);
+                cellScript.Generator = this;
             }
         }
     }

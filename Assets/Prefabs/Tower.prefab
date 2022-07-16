@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8989169627055491810}
   - component: {fileID: -4106566707261123263}
   - component: {fileID: 4870655070082667785}
-  - component: {fileID: -2685222276445867964}
+  - component: {fileID: 5710887153550828343}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077656677856881059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 05d2bdef58e7cbe4ba7ea4c2db8f4019, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-2685222276445867964
+--- !u!114 &5710887153550828343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,6 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1077656677856881059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0dbe82a4c011094b973a6f075a7a700, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e9e45ab1a8b6544688d60585c25cc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NameOfEntityContainer: Entities
+  Range: 2
+  Cooldown: 1
+  Damage: 1

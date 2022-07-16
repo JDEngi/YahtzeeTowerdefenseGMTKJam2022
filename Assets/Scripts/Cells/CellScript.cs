@@ -2,17 +2,17 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CellScript : MonoBehaviour
 {
-    public UnityEvent<Transform>[] OnClickHandler;
-    public Material MaterialWhenVisible;
-    public Material MaterialWhenNotVisible;
-
-    public GameObject ContainedElement = null;
+    public CellGenerator Generator;
+    public GameObject ContainedElement;
     public bool IsPath;
 
+    [SerializeField]
     private int x;
+    [SerializeField]
     private int y;
 
     private MeshRenderer renderProperties;
@@ -22,7 +22,7 @@ public class CellScript : MonoBehaviour
         renderProperties = GetComponent<MeshRenderer>();
         if (IsPath)
         {
-            ContainedElement = new GameObject("Path filler");
+            ContainedElement = Instantiate(Generator.PathPrefab, transform);
         }
     }
 
@@ -36,25 +36,24 @@ public class CellScript : MonoBehaviour
     {
         if (ContainedElement == null)
         {
-            renderProperties.material = MaterialWhenVisible;
+            renderProperties.material = Generator.MaterialWhenVisible;
         }
     }
     
     void OnMouseExit()
     {
-        renderProperties.material = MaterialWhenNotVisible;
+        renderProperties.material = Generator.MaterialWhenNotVisible;
     }
 
     void OnMouseDown()
     {
-        Debug.Log("Click on Cell " + x + " " + y);
+        if (ContainedElement != null) return;
+        GameObject tower = Generator.TowerSelectionScript.SelectedTowerPrefab;
+        if (tower == null) return;
 
-        if (ContainedElement == null)
-        {
-            foreach (UnityEvent<Transform> lHandler in OnClickHandler)
-            {
-                lHandler.Invoke(transform);
-            }
-        }
+        Generator.TowerSelectionScript.SelectedTowerPrefab = null;
+        ContainedElement = Instantiate(tower, transform);
+        ContainedElement.transform.localScale = new Vector3(10, 1, 10);
+        
     }
 }

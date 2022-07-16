@@ -36,4 +36,9 @@ public class AbstractEnemy : MonoBehaviour
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
     }
+
+    public void applyDamage(float damage)
+    {
+        throw new NotImplementedException();
+    }
 }
