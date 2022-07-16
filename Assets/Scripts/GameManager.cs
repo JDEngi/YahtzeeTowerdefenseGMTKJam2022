@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     // Game stats
     public static int score = 0;
 
+    // Max dice
+    public int MaxDice = 6;
+
     public GameObject EnemyGoalReference;
 
     private void Awake()
@@ -139,7 +142,10 @@ public class GameManager : MonoBehaviour
             DiceRoller diceRoller = GameObject.FindObjectOfType<DiceRoller>();
             if (diceRoller)
             {
-                diceRoller.AddDice();
+                if (diceRoller.GetDiceCount() < MaxDice)
+                {
+                    diceRoller.AddDice();
+                }
             }
             currentDiceCountDownTime = diceCountdownTime;
         }
