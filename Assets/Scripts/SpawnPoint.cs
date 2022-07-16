@@ -23,8 +23,7 @@ public class SpawnPoint : MonoBehaviour
 
     private void Spawn()
     {
-        Transform parent = GetComponentInParent<Transform>();
-        GameObject newEnemy = Instantiate(spawnablePrefab, parent);
+        GameObject newEnemy = Instantiate(spawnablePrefab, transform.parent);
         newEnemy.transform.position = transform.position;
     }
 }
