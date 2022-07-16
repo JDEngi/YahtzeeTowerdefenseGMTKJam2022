@@ -11,6 +11,7 @@ public class Path : MonoBehaviour
     // returns a position to walk toward, given the current position
     public Transform getTargetPoint(Transform aCurrentPosition)
     {
+        // v1: get nearest waypoint, return position of next waypoint
         return null;
     }
 
