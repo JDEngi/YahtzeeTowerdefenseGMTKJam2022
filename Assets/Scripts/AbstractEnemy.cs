@@ -16,14 +16,14 @@ public class AbstractEnemy : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
 
-    void Start()
+    public void Start()
     {
         target = Waypoints.points[0];
 
         health = startHealth;
     }
 
-    void Update()
+    public void Update()
     {
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);

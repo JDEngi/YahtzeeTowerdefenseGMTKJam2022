@@ -1,4 +1,5 @@
 
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,16 +11,18 @@ public class AbstractTower : MonoBehaviour
     public float Damage;
 
     private float currentCooldown;
-    private GameObject EntityContainer;
+    private GameObject entityContainer;
+    private AbstractEnemy targetEntity;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        EntityContainer = GameObject.Find(NameOfEntityContainer);
+        entityContainer = GameObject.Find(NameOfEntityContainer);
+        if (!entityContainer) throw new Exception("Could not find object with name " + NameOfEntityContainer);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (currentCooldown > 0)
         {
@@ -27,20 +30,42 @@ public class AbstractTower : MonoBehaviour
         }
         else
         {
-            AbstractEnemy enemy = SearchEnemyToShoot();
-            if (enemy == null) return;
+            // if we have a target, check whether it is valid
+            if (targetEntity != null && !targetEntity.IsDestroyed())
+            {
+                float currentDistance = Vector3.Distance(targetEntity.transform.position, transform.position);
+                if (currentDistance > Range)
+                {
+                    targetEntity = null;
+                }
+            }
 
-            enemy.ApplyDamage(Damage);
-            currentCooldown = Cooldown;
+            // if we have no valid target, search a new one
+            if (targetEntity == null)
+            {
+                targetEntity = SearchEnemyToShoot();
+            }
+
+            // if we have no new target, do nothing
+            if (targetEntity == null)
+            {
+                currentCooldown = 0;
+                return;
+            }
+
+            Debug.Log("Shoot!");
+
+            targetEntity.ApplyDamage(Damage);
+            currentCooldown += Cooldown;
         }
     }
 
     private AbstractEnemy SearchEnemyToShoot()
     {
-        AbstractEnemy[] allEnemies = EntityContainer.GetComponentsInChildren<AbstractEnemy>();
+        AbstractEnemy[] allEnemies = entityContainer.GetComponentsInChildren<AbstractEnemy>();
         foreach (AbstractEnemy enemy in allEnemies)
         {
-            float distance = UnityEngine.Vector3.Distance(enemy.transform.position, transform.position);
+            float distance = Vector3.Distance(enemy.transform.position, transform.position);
             if (distance < Range) return enemy;
         }
 

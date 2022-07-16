@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
-  Range: 2
+  Range: 3
   Cooldown: 1
-  Damage: 1
+  Damage: 5

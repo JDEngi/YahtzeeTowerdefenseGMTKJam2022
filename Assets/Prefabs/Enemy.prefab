@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 5427692528573197259}
   - component: {fileID: 550700122146201212}
   - component: {fileID: 3820482830042401404}
-  - component: {fileID: -5139566856509391092}
+  - component: {fileID: 2444399528392983626}
   - component: {fileID: 3479857028575593393}
   m_Layer: 0
   m_Name: Enemy
@@ -354,7 +354,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5139566856509391092
+--- !u!114 &2444399528392983626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,11 +363,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805227644114722116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76274114aa8e7474baa0568e487d6027, type: 3}
+  m_Script: {fileID: 11500000, guid: 6497c3ae8b472724698e67b978801678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  startHealth: 100
+  speed: 2
+  startHealth: 10
   healthBar: {fileID: 1577737546}
 --- !u!54 &3479857028575593393
 Rigidbody:
