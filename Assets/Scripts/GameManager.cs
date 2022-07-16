@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Make game manager a singleton instance
-    public static GameManager instance;
+    private static GameManager _instance;
 
     public static event Action<GameStates> OnGameStateChanged;
 
@@ -26,6 +26,17 @@ public class GameManager : MonoBehaviour
 
     public GameObject EnemyGoalReference;
 
+    private void Awake()
+    {
+        if(_instance != null)
+        {
+            Debug.Log("More than one instance of GameManager is attempted to be created");
+            return;
+        }
+
+        _instance = this;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,10 +46,10 @@ public class GameManager : MonoBehaviour
         currentDiceCountDownTime = initialCountDownTime;
 
         // Now activated automatically, should be moved to a UI button
-        NewGame();
+        //StartNewGame();
     }
 
-    void NewGame()
+    public void StartNewGame()
     {
         UpdateState(GameStates.RUN);
     }
@@ -56,12 +67,16 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameStates.START:
+                // Show Start menu?
                 break;
             case GameStates.RUN:
+                // Disable menus
                 break;
             case GameStates.PAUSE:
+                // Show pause menu
                 break;
             case GameStates.GAMEOVER:
+                // Show gameover screen
                 break;
         }
 
@@ -80,8 +95,12 @@ public class GameManager : MonoBehaviour
                 GameOver();
             }
         }   
-        
 
+        if (Input.GetButtonDown("Menu"))
+        {
+            Debug.Log("Open menu");
+            UpdateState(State == GameStates.RUN ? GameStates.PAUSE : GameStates.RUN);
+        }
     }
 
     void UpdateDiceAdd()
