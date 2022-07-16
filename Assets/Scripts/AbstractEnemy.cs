@@ -11,6 +11,8 @@ public class AbstractEnemy : MonoBehaviour
     public float startHealth = 100;
     private float health;
 
+    public int value = 25; // Reward for killing enemy
+
     public Image healthBar;
 
     private Transform target;
@@ -48,7 +50,18 @@ public class AbstractEnemy : MonoBehaviour
     public void ApplyDamage(float damage)
     {
         health -= damage;
-
         healthBar.fillAmount = health / startHealth;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+
+    }
+
+    private void Die()
+    {
+        // Todo: Add reward for killing enemy
+        Destroy (gameObject);
     }
 }
