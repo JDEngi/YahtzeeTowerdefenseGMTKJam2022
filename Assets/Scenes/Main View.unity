@@ -8506,10 +8506,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 3154296686752534699, guid: d3dcc399ba6e990459d04922c6aa7e71, type: 3}
-  MaterialWhenVisible: {fileID: 0}
-  MaterialWhenNotVisible: {fileID: 0}
-  TowerSelectionScript: {fileID: 0}
-  PathPrefab: {fileID: 0}
+  MaterialWhenVisible: {fileID: 2100000, guid: e5866a31dd5adf14b8a6237f34cc19d3, type: 2}
+  MaterialWhenNotVisible: {fileID: 2100000, guid: 0ef706461d6a366478a72fc2dcedd294, type: 2}
+  TowerSelectionScript: {fileID: 383537482}
+  PathPrefab: {fileID: 1814562304810631041, guid: 142eca52847925f44a2c4eb4409ee0b1, type: 3}
   Spacing: 0.90909094
   NumXElements: 11
   NumYElements: 11
