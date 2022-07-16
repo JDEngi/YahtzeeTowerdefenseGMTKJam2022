@@ -67,15 +67,19 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameStates.START:
+                Time.timeScale = 0;
                 // Show Start menu?
                 break;
             case GameStates.RUN:
+                Time.timeScale = 1;
                 // Disable menus
                 break;
             case GameStates.PAUSE:
-                // Show pause menu
+                Time.timeScale = 0;
+                // Pause all
                 break;
             case GameStates.GAMEOVER:
+                Time.timeScale = 0;
                 // Show gameover screen
                 break;
         }
@@ -93,6 +97,11 @@ public class GameManager : MonoBehaviour
         {
             UpdateState(GameStates.RUN);
         }
+    }
+
+    public void RestartGame()
+    {
+        UpdateState(GameStates.START);
     }
 
     // Update is called once per frame
