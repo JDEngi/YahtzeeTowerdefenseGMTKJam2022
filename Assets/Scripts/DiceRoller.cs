@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DiceRoller : MonoBehaviour
@@ -9,6 +10,7 @@ public class DiceRoller : MonoBehaviour
     public SingleDice diceOriginal;
     private GameObject diceContainer;
     private List<SingleDice> dices;
+    public Button[] buttons;
     //private List<>
 
     // Start is called before the first frame update
@@ -47,12 +49,17 @@ public class DiceRoller : MonoBehaviour
 
     public void RemoveDice()
     {
+        if (dices.Count < 1)
+        { 
+            return; 
+        }
         dices.RemoveAt(dices.Count - 1);
         Destroy(diceContainer.transform.GetChild(diceContainer.transform.childCount - 1).gameObject);
     }
 
     private void CheckForCombos()
     {
+        DisableAllButtons();
         List<int> numbers = new List<int>();
         foreach (var dice in dices) numbers.Add(dice.GetNumber());
 
@@ -66,19 +73,23 @@ public class DiceRoller : MonoBehaviour
 
             if (sameNumbers == 3)
             {
-                Debug.Log("You threw a three of a kind!");
+                EnableButton(0);
+                //Debug.Log("You threw a three of a kind!");
             }
             else if (sameNumbers == 4)
             {
-                Debug.Log("You threw a carre!");
+                EnableButton(1);
+                //Debug.Log("You threw a carre!");
             }
             else if (sameNumbers == 5)
             {
-                Debug.Log("You threw a Yathzee!");
+                EnableButton(4);
+                //Debug.Log("You threw a Yathzee!");
             }
             else if (sameNumbers >= 6)
             {
-                Debug.Log("You threw a MEGA Yathzee!");
+                EnableButton(5);
+                //Debug.Log("You threw a MEGA Yathzee!");
             }
         }
 
@@ -99,19 +110,23 @@ public class DiceRoller : MonoBehaviour
             }
             if (streetCount == 3)
             {
-                Debug.Log("You threw a tiny street!");
+                EnableButton(0);
+                //Debug.Log("You threw a tiny street!");
             }
             else if (streetCount == 4)
             {
-                Debug.Log("You threw a small street!");
+                EnableButton(1);
+                //Debug.Log("You threw a small street!");
             }
             else if (streetCount == 5)
             {
-                Debug.Log("You threw a big street!");
+                EnableButton(2);
+                //Debug.Log("You threw a big street!");
             }
             else if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
             {
-                Debug.Log("You threw a huge street!");
+                EnableButton(4);
+                //Debug.Log("You threw a huge street!");
             }
             streetCount = 0;
         }
@@ -136,7 +151,21 @@ public class DiceRoller : MonoBehaviour
         }
         if (detectedPair && detectedThreeOfAKind)
         {
-            Debug.Log("You threw a three of a kind!");
+            EnableButton(3);
+            //Debug.Log("You threw a full house!");
         }
+    }
+
+    private void DisableAllButtons()
+    {
+        foreach (Button button in buttons)
+        {
+            button.interactable = false;
+        }
+    }
+    
+    private void EnableButton(int buttonNumber)
+    {
+        buttons[buttonNumber].interactable = true;
     }
 }
