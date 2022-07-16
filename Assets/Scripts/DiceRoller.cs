@@ -6,15 +6,17 @@ using TMPro;
 public class DiceRoller : MonoBehaviour
 {
     //public TMP_Text diceText;
-    public GameObject diceNumberOriginal;
-    private GameObject diceNumberContainer;
+    public SingleDice diceOriginal;
+    private GameObject diceContainer;
+    private List<SingleDice> dices;
     //private List<>
 
     // Start is called before the first frame update
     void Start()
     {
-        diceNumberContainer = new GameObject();
-        AddDice();
+        diceContainer = new GameObject();
+        dices = new List<SingleDice>();
+        //AddDice();
     }
 
     // Update is called once per frame
@@ -25,36 +27,45 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDice()
     {
-    //    var diceNumbers = new List<GameObject>();
-    //    foreach (Transform diceNumber in diceNumberContainer.transform) diceNumbers.Add(diceNumber.gameObject);
-
-        //diceNumbers.ForEach()
-
-    //    foreach (Transform diceNumber in diceNumberContainer.transform)
-    //    {
-    //        int rolledNumber = Mathf.RoundToInt(Random.Range(0.5f, 6.5f));
-    //        TMP_Text diceText = (TMP_Text) diceNumber.gameObject;
-    //        diceNumber.gameObject.text = rolledNumber.ToString();
-    //    }
-        
+        foreach (SingleDice dice in dices)
+        {
+            int rolledNumber = Mathf.RoundToInt(Random.Range(0.5f, 6.5f));
+            dice.ChangeNumber(rolledNumber);
+        }
+        CheckForCombos();
     }
 
     public void AddDice()
     {
-        //GameObject diceNumber = Instantiate(diceNumberOriginal, new Vector3(diceNumberContainer.transform.childCount, 0, 0), diceNumberOriginal.transform.rotation);
-        GameObject diceNumber = Instantiate(diceNumberOriginal, this.transform);
-        diceNumberContainer.transform.SetParent(diceNumber.transform.parent);
-        diceNumber.transform.position += new Vector3(diceNumberContainer.transform.childCount, 0.0f, 0.0f);
-        diceNumber.name = "diceNumber" + diceNumberContainer.transform.childCount;
+        SingleDice dice = Instantiate(diceOriginal) as SingleDice;        
+        int nrOfChilds = diceContainer.transform.childCount;
+        dice.transform.position += new Vector3((nrOfChilds % 3) * 1.2f, 0.0f, -(Mathf.Floor(nrOfChilds / 3) * 1.2f));
+        dice.name = "diceNumber" + nrOfChilds;
+        dice.transform.SetParent(diceContainer.transform);
+        dices.Add(dice);
     }
 
     public void RemoveDice()
     {
-        Destroy(diceNumberContainer.transform.GetChild(diceNumberContainer.transform.childCount - 1).gameObject);
+        dices.RemoveAt(dices.Count - 1);
+        Destroy(diceContainer.transform.GetChild(diceContainer.transform.childCount - 1).gameObject);
     }
 
     private void CheckForCombos()
     {
+        List<int> numbers = new List<int>();
+        foreach (var dice in dices) numbers.Add(dice.GetNumber());
 
+        
+        for (int i = 1; i < 6; i++)
+        {
+            int sameNumbers = numbers.FindAll(x => x == i).Count;
+            //Debug.Log("for " + i + "there is " + sameNumbers + " times the same number");
+            if (sameNumbers > 2)
+            {
+                Debug.Log("You have trown a three of a kind!");
+            }
+        }
+        
     }
 }
