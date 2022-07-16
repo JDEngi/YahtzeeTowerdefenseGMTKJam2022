@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 4176525893
+    locked: 0
+  - name: Entities
+    uniqueID: 570596811
+    locked: 0
+  - name: Dice
+    uniqueID: 2050727405
+    locked: 0
