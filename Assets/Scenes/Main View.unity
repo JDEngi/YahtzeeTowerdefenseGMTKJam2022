@@ -3218,7 +3218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd020587eede9ad4c965c5c5c2a92ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectedTowerPrefab: {fileID: 1077656677856881059, guid: a0c9cab76081d9f48acce33fb873c607, type: 3}
+  SelectedTowerPrefab: {fileID: 0}
 --- !u!4 &390471663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8501086394045503065, guid: d3dcc399ba6e990459d04922c6aa7e71, type: 3}
