@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SimpleEnemy : AbstractEnemy
 {
+    // TODO healthbar
+
     // Start is called before the first frame update
     void Start()
     {
