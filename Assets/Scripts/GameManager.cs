@@ -83,6 +83,18 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(newState);
     }
 
+    void TogglePause()
+    {
+        if (State == GameStates.RUN)
+        {
+            UpdateState(GameStates.PAUSE);
+        }
+        else if (State == GameStates.PAUSE)
+        {
+            UpdateState(GameStates.RUN);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -99,7 +111,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Menu"))
         {
             Debug.Log("Open menu");
-            UpdateState(State == GameStates.RUN ? GameStates.PAUSE : GameStates.RUN);
+            TogglePause();
         }
     }
 
