@@ -1809,6 +1809,7 @@ MonoBehaviour:
   SpawnPoints:
   - {fileID: 180423227}
   initialCountDownTime: 5
+  diceCountdownTime: 2
   WaveNumber: 0
   WaveTime: 10
   EnemyGoalReference: {fileID: 1311927225}

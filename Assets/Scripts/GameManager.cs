@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     // Spawn timer that calls the spawn function
     public float initialCountDownTime = 5;
+    public float diceCountdownTime = 5;
     private float currentWaveCountDownTime;
     private float currentDiceCountDownTime;
 
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         UpdateState(GameStates.START);
         currentWaveCountDownTime = initialCountDownTime;
-        currentDiceCountDownTime = initialCountDownTime;
+        currentDiceCountDownTime = diceCountdownTime;
 
         // Now activated automatically, should be moved to a UI button
         //StartNewGame();
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
         if (State == GameStates.RUN)
         {
             UpdateWave();
+            UpdateDiceAdd();
 
             if (EnemyGoalReference.GetComponent<EnemyGoal>().HealthPoints <= 0)
             {
@@ -131,6 +133,12 @@ public class GameManager : MonoBehaviour
         if(currentDiceCountDownTime <= 0)
         {
             // Give the player an extra dice.
+            DiceRoller diceRoller = GameObject.FindObjectOfType<DiceRoller>();
+            if (diceRoller)
+            {
+                diceRoller.AddDice();
+            }
+            currentDiceCountDownTime = diceCountdownTime;
         }
 
     }
