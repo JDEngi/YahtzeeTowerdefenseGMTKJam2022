@@ -18,7 +18,11 @@ public class DiceRoller : MonoBehaviour
     {
         diceContainer = new GameObject();
         dices = new List<SingleDice>();
-        //AddDice();
+        int startDices = 3;
+        for (int i = 0; i < startDices; i++)
+        {
+            AddDice();
+        }
     }
 
     // Update is called once per frame
