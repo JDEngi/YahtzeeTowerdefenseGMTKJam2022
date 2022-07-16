@@ -30,7 +30,7 @@ public class AbstractTower : MonoBehaviour
             AbstractEnemy enemy = SearchEnemyToShoot();
             if (enemy == null) return;
 
-            enemy.applyDamage(Damage);
+            enemy.ApplyDamage(Damage);
             currentCooldown = Cooldown;
         }
     }

@@ -2,10 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AbstractEnemy : MonoBehaviour
 {
     public float speed = 10f;
+
+    public float startHealth = 100;
+    private float health;
+
+    public Image healthBar;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -13,6 +19,8 @@ public class AbstractEnemy : MonoBehaviour
     void Start()
     {
         target = Waypoints.points[0];
+
+        health = startHealth;
     }
 
     void Update()
@@ -37,8 +45,10 @@ public class AbstractEnemy : MonoBehaviour
         target = Waypoints.points[wavepointIndex];
     }
 
-    public void applyDamage(float damage)
+    public void ApplyDamage(float damage)
     {
-        throw new NotImplementedException();
+        health -= damage;
+
+        healthBar.fillAmount = health / startHealth;
     }
 }
