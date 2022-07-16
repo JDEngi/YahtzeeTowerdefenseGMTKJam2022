@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-
     public GameObject spawnablePrefab;
     // Start is called before the first frame update
 
@@ -24,6 +23,8 @@ public class SpawnPoint : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(spawnablePrefab, this.transform.position, this.transform.rotation);
+        Transform parent = GetComponentInParent<Transform>();
+        GameObject newEnemy = Instantiate(spawnablePrefab, parent);
+        newEnemy.transform.position = transform.position;
     }
 }
