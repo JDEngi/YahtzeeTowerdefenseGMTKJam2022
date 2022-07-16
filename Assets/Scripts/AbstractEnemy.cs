@@ -11,7 +11,7 @@ public class AbstractEnemy : MonoBehaviour
     public float startHealth = 100;
     private float health;
 
-    public int value = 25; // Reward for killing enemy
+    public int killvalue = 1;
 
     public Image healthBar;
 
@@ -61,7 +61,8 @@ public class AbstractEnemy : MonoBehaviour
 
     private void Die()
     {
-        // Todo: Add reward for killing enemy
+        GameManager.AddScore(killvalue);
+
         Destroy (gameObject);
     }
 }

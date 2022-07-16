@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public int WaveNumber = 0;
     public float WaveTime = 10;
 
+    // Game stats
+    public static int score = 0;
+
     public GameObject EnemyGoalReference;
 
     private void Awake()
@@ -157,6 +160,11 @@ public class GameManager : MonoBehaviour
             }
             currentWaveCountDownTime = WaveTime;
         }
+    }
+
+    internal static void AddScore(int killvalue)
+    {
+        score += killvalue;
     }
 }
 
