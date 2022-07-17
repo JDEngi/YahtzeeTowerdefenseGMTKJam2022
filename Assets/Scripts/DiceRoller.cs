@@ -9,7 +9,7 @@ public class DiceRoller : MonoBehaviour
     public SingleDice diceOriginal;
     private GameObject diceContainer;
     private List<SingleDice> dices;
-    public Button[] buttons;
+    public GameObject[] buttons;
     public TMP_Text RerollsLeftText;
     private int RerollsLeft;
     public Button RollDicesButton;
@@ -196,7 +196,7 @@ public class DiceRoller : MonoBehaviour
 
         //section for detecting streets.
         int streetCount = 0;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 3; i++)
         {
             for (int j = i; j < 6; j++)
             {
@@ -216,12 +216,12 @@ public class DiceRoller : MonoBehaviour
             }
             if (streetCount >= 4)
             {
-                EnableButton(1, i);
+                EnableButton(1, i + 1);
                 //Debug.Log("You threw a small street!");
             }
             if (streetCount >= 5)
             {
-                EnableButton(2, i);
+                EnableButton(2, 0);
                 //Debug.Log("You threw a big street!");
             }
             if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
@@ -259,16 +259,20 @@ public class DiceRoller : MonoBehaviour
 
     private void DisableAllButtons()
     {
-        foreach (Button button in buttons)
+        foreach (GameObject buttonObj in buttons)
         {
+            Button button = buttonObj.GetComponent<Button>();
             button.interactable = false;
         }
     }
     
     private void EnableButton(int buttonNumber, int powerlevel)
     {
-        buttons[buttonNumber].interactable = true;
-        //buttons[buttonNumber].powerLevel = 1;
+        Button button = buttons[buttonNumber].GetComponent<Button>();
+        button.interactable = true;
+
+        TowerOptionScript selection = buttons[buttonNumber].GetComponent<TowerOptionScript>();
+        selection.power = powerlevel;
     }
 
     private void UnlockRollDicesButton()

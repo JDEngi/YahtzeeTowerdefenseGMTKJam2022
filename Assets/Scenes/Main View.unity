@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 37889693}
   - component: {fileID: 37889692}
   - component: {fileID: 37889694}
+  - component: {fileID: 37889695}
   m_Layer: 5
   m_Name: GrabTower1
   m_TagString: Untagged
@@ -391,18 +392,38 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383537482}
-        m_TargetAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
-        m_MethodName: SetTower
+      - m_Target: {fileID: 37889695}
+        m_TargetAssemblyTypeName: TowerOptionScript, Assembly-CSharp
+        m_MethodName: Activate
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3752377076213532028, guid: 8005981f253a60645abe954f2bb33330, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 383537482}
+          m_ObjectArgumentAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &37889695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37889689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adcfacc0ba2d54478d893d9e65e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  TowerPrefabs:
+  - {fileID: 3752377076213532028, guid: 8005981f253a60645abe954f2bb33330, type: 3}
+  - {fileID: 3752377076213532028, guid: d65e71d7e0332f5438feb168607f1fbc, type: 3}
+  - {fileID: 3752377076213532028, guid: b36544ef15fe0b74d9aa15cbbc0222d5, type: 3}
+  - {fileID: 3752377076213532028, guid: 75f311c78e23d8441aaf251f27824949, type: 3}
+  - {fileID: 3752377076213532028, guid: 73520e2e1b3ea0b47889bf76b5bd3df6, type: 3}
+  - {fileID: 3752377076213532028, guid: 7e8298d507892894aa5729d50856c491, type: 3}
 --- !u!1001 &38675376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1254,6 +1275,7 @@ GameObject:
   - component: {fileID: 173513268}
   - component: {fileID: 173513267}
   - component: {fileID: 173513269}
+  - component: {fileID: 173513270}
   m_Layer: 5
   m_Name: GrabTower4
   m_TagString: Untagged
@@ -1422,18 +1444,37 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383537482}
-        m_TargetAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
-        m_MethodName: SetTower
+      - m_Target: {fileID: 173513270}
+        m_TargetAssemblyTypeName: TowerOptionScript, Assembly-CSharp
+        m_MethodName: Activate
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3752377076213532028, guid: 5a66b1cbc358416418c9396f7e634ac6, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 383537482}
+          m_ObjectArgumentAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &173513270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173513265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adcfacc0ba2d54478d893d9e65e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  TowerPrefabs:
+  - {fileID: 3752377076213532028, guid: 2edd426c2ed0f3a4081031c9ea3f0cb3, type: 3}
+  - {fileID: 3752377076213532028, guid: e46220b47c07c2e4cb81803054a61d8b, type: 3}
+  - {fileID: 3752377076213532028, guid: 7d25ee0fe0ee0de4daab8b1f952da50a, type: 3}
+  - {fileID: 3752377076213532028, guid: 7121fb631f683ad4ba882eeeca0fd596, type: 3}
+  - {fileID: 3752377076213532028, guid: e237465f9bf8a7f4d95a25bfe7907c76, type: 3}
 --- !u!4 &174147649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8501086394045503065, guid: d3dcc399ba6e990459d04922c6aa7e71, type: 3}
@@ -4169,6 +4210,7 @@ GameObject:
   - component: {fileID: 516834295}
   - component: {fileID: 516834294}
   - component: {fileID: 516834296}
+  - component: {fileID: 516834297}
   m_Layer: 5
   m_Name: GrabTower3
   m_TagString: Untagged
@@ -4339,18 +4381,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383537482}
-        m_TargetAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
-        m_MethodName: SetTower
+      - m_Target: {fileID: 516834297}
+        m_TargetAssemblyTypeName: TowerOptionScript, Assembly-CSharp
+        m_MethodName: Activate
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3752377076213532028, guid: 2edd426c2ed0f3a4081031c9ea3f0cb3, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 383537482}
+          m_ObjectArgumentAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &516834297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516834292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adcfacc0ba2d54478d893d9e65e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  TowerPrefabs:
+  - {fileID: 3752377076213532028, guid: 5a66b1cbc358416418c9396f7e634ac6, type: 3}
+  - {fileID: 3752377076213532028, guid: 2fede6875f3cdaa459a85e2840d96162, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4500,12 +4558,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   diceOriginal: {fileID: -6445184797331598316, guid: 8bd2e3e3b2d98d54eac0fe0faff32f58, type: 3}
   buttons:
-  - {fileID: 37889694}
-  - {fileID: 2034023859}
-  - {fileID: 516834296}
-  - {fileID: 173513269}
-  - {fileID: 613385903}
-  - {fileID: 1448487035}
+  - {fileID: 37889689}
+  - {fileID: 2034023855}
+  - {fileID: 516834292}
+  - {fileID: 173513265}
+  - {fileID: 613385899}
+  - {fileID: 1448487034}
   RerollsLeftText: {fileID: 1978554647}
   RollDicesButton: {fileID: 444832404}
 --- !u!4 &521997326
@@ -4995,6 +5053,7 @@ GameObject:
   - component: {fileID: 613385902}
   - component: {fileID: 613385901}
   - component: {fileID: 613385903}
+  - component: {fileID: 613385904}
   m_Layer: 5
   m_Name: GrabTower5
   m_TagString: Untagged
@@ -5163,18 +5222,38 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383537482}
-        m_TargetAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
-        m_MethodName: SetTower
+      - m_Target: {fileID: 613385904}
+        m_TargetAssemblyTypeName: TowerOptionScript, Assembly-CSharp
+        m_MethodName: Activate
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3752377076213532028, guid: 391c7d8933f587541a1119a859e8e874, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 383537482}
+          m_ObjectArgumentAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &613385904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613385899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adcfacc0ba2d54478d893d9e65e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  TowerPrefabs:
+  - {fileID: 3752377076213532028, guid: 391c7d8933f587541a1119a859e8e874, type: 3}
+  - {fileID: 3752377076213532028, guid: 7c1e28296f51d2a4d86e21f8277f0718, type: 3}
+  - {fileID: 3752377076213532028, guid: 19d37ebd43952134daec03d4f41c2846, type: 3}
+  - {fileID: 3752377076213532028, guid: 1b980de1593af3d44b81fc16b737997e, type: 3}
+  - {fileID: 3752377076213532028, guid: 741dd0138ec33ca4d8c6082aca41465f, type: 3}
+  - {fileID: 3752377076213532028, guid: 52d9d9c9396d3cc4699dbd2319d3445c, type: 3}
 --- !u!1001 &614461919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10363,6 +10442,7 @@ GameObject:
   - component: {fileID: 1448487037}
   - component: {fileID: 1448487036}
   - component: {fileID: 1448487035}
+  - component: {fileID: 1448487039}
   m_Layer: 5
   m_Name: GrabTower6
   m_TagString: Untagged
@@ -10414,13 +10494,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383537482}
-        m_TargetAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
-        m_MethodName: SetTower
+      - m_Target: {fileID: 1448487039}
+        m_TargetAssemblyTypeName: TowerOptionScript, Assembly-CSharp
+        m_MethodName: Activate
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3752377076213532028, guid: f93908badfcfe9942957b3586e5f1590, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 383537482}
+          m_ObjectArgumentAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10543,6 +10623,26 @@ RectTransform:
   m_AnchoredPosition: {x: -303, y: -124.80001}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1448487039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448487034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adcfacc0ba2d54478d893d9e65e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  TowerPrefabs:
+  - {fileID: 3752377076213532028, guid: f93908badfcfe9942957b3586e5f1590, type: 3}
+  - {fileID: 3752377076213532028, guid: 098f3485aabdd2645919e152b1b6a8e4, type: 3}
+  - {fileID: 3752377076213532028, guid: f2a13f6fef11b9d46881c6058e5a000f, type: 3}
+  - {fileID: 3752377076213532028, guid: 3380c5cafab51a544b894b3583620f15, type: 3}
+  - {fileID: 3752377076213532028, guid: 1dd4e8508ce37e5459686c82dba11e44, type: 3}
+  - {fileID: 3752377076213532028, guid: f591981116d752e4d9740b27e7f38619, type: 3}
 --- !u!114 &1453547700 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7613803299159765394, guid: 5a3426be7bbce5145b1b0354f5439ba4, type: 3}
@@ -13880,6 +13980,7 @@ GameObject:
   - component: {fileID: 2034023858}
   - component: {fileID: 2034023857}
   - component: {fileID: 2034023859}
+  - component: {fileID: 2034023860}
   m_Layer: 5
   m_Name: GrabTower2
   m_TagString: Untagged
@@ -14048,18 +14149,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 383537482}
-        m_TargetAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
-        m_MethodName: SetTower
+      - m_Target: {fileID: 2034023860}
+        m_TargetAssemblyTypeName: TowerOptionScript, Assembly-CSharp
+        m_MethodName: Activate
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3752377076213532028, guid: a8de6390964a53f4eb3a16e122dd49e0, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 383537482}
+          m_ObjectArgumentAssemblyTypeName: TowerSelectionScript, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2034023860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034023855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adcfacc0ba2d54478d893d9e65e2c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  TowerPrefabs:
+  - {fileID: 3752377076213532028, guid: a8de6390964a53f4eb3a16e122dd49e0, type: 3}
+  - {fileID: 3752377076213532028, guid: de25a9874df83ff4996d1fe6d3117830, type: 3}
+  - {fileID: 3752377076213532028, guid: ae224bf6ff00b4f4790695e861b5d1d2, type: 3}
 --- !u!1001 &2035330083
 PrefabInstance:
   m_ObjectHideFlags: 0
