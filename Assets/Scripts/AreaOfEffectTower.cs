@@ -12,6 +12,8 @@ public class AreaOfEffectTower : AbstractTower
     public float FireRate = 1f;
     private float FireCountdown = 0f;
 
+    public float FadeOutTime = 1f;
+
     // Start is called before the first frame update
     public new void Start()
     {
@@ -50,28 +52,19 @@ public class AreaOfEffectTower : AbstractTower
     private void ShowDamageArea()
     {
         GameObject instance = Instantiate(EffectGameObject, transform);
-        instance.transform.localScale = new Vector3(Range * 10, 1, Range * 10);
+        instance.transform.localScale = new Vector3(Range, Range, Range);
         StartCoroutine(FadeOutDamageArea(instance));
     }
 
-    IEnumerator FadeOutDamageArea(GameObject targetEffectObject)
+    IEnumerator FadeOutDamageArea(GameObject gameObject)
     {
-        float fadeOutTime = 0.9f / FireRate;
-        float startFadeTime = Time.fixedTime;
-        float currentFadeTime = startFadeTime;
-
-        Renderer component = targetEffectObject.GetComponent<Renderer>();
-        Color color = component.material.color;
-        float fadeDelay = 0.1f;
-
-        while (currentFadeTime < startFadeTime + fadeOutTime)
+        int fadeSteps = 100;
+        for (int i = 0; i < fadeSteps; i++)
         {
-            float f = (currentFadeTime - startFadeTime) / fadeOutTime;
-            component.material.color = new Color(color.r, color.g, color.b, (1 - f) * color.a);
-            Debug.Log("color = " + component.material.color);
-            yield return new WaitForSeconds(fadeDelay);
-            currentFadeTime = Time.fixedTime;
+            Color color = gameObject.GetComponent<Renderer>().material.color;
+            gameObject.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, i / fadeSteps);
         }
+        yield return new WaitForSeconds(FadeOutTime / fadeSteps);
     }
 
     private IEnumerable<AbstractEnemy> FindAllEnemiesInRange()
