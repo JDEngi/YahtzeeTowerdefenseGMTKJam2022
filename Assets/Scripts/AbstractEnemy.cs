@@ -81,3 +81,5 @@ public class AbstractEnemy : MonoBehaviour
         Destroy (gameObject);
     }
 }
+
+public enum EnemyTypes { grunt, soldier, tank };

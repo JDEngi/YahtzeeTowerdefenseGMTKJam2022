@@ -1559,7 +1559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9cd993eaa86ca04692eeafe5727ddb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnablePrefab: {fileID: 1805227644114722116, guid: cf796e515b70f584996f568300a58b84, type: 3}
+  GruntPrefab: {fileID: 1805227644114722116, guid: cf796e515b70f584996f568300a58b84, type: 3}
+  SoldierPrefab: {fileID: 8104541963106962169, guid: 9e071ce6f031e9240a69b4b1b76a8e62, type: 3}
+  TankPrefab: {fileID: 3344335377219220870, guid: 7d5de0bc4602a2046a25559c6b46dcf9, type: 3}
 --- !u!65 &180423228
 BoxCollider:
   m_ObjectHideFlags: 0
