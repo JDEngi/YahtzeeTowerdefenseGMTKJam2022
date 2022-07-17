@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: -530815935276194408}
   - component: {fileID: 6178804159745408446}
   m_Layer: 0
-  m_Name: PawnTower 1
+  m_Name: PawnTower 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7f446018afb3ce4e8b1cf81b0bb03a2, type: 2}
+  - {fileID: 2100000, guid: ea86e314d4a19b048bca941b09374f5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
   BuildCost: 0
-  Damage: 2
+  Damage: 2.4
   Range: 1.5
   firePoint: {fileID: 6492540825077477291}
   lineRenderer: {fileID: -530815935276194408}
