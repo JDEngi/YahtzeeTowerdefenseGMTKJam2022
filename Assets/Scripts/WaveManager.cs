@@ -27,7 +27,7 @@ public class WaveManager : MonoBehaviour
         set
         {
             _waveCountdownTime = value;
-            WaveCountdownTimeUI.GetComponent<TMP_Text>().SetText("Until next wave: \n{0}", Mathf.RoundToInt(_waveCountdownTime));
+            WaveCountdownTimeUI.GetComponent<TMP_Text>().SetText("Until next wave: {0}", Mathf.RoundToInt(_waveCountdownTime));
         }
     }
     private float _waveCountdownTime;
