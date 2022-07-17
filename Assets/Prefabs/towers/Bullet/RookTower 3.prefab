@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9e45ab1a8b6544688d60585c25cc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NameOfEntityContainer: Entites
+  NameOfEntityContainer: Entities
   BuildCost: 3
   Damage: 3
   Range: 4
