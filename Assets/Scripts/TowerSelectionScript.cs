@@ -22,21 +22,4 @@ public class TowerSelectionScript : MonoBehaviour
     {
         SelectedTowerPrefab = towerPrefab;
     }
-
-
-
-    void OnMouseEnter()
-    {
-
-    }
-
-    void OnMouseExit()
-    {
-
-    }
-
-    void OnMouseDown()
-    {
-        
-    }
 }

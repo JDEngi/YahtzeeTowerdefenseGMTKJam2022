@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform _target;
+    private AbstractEnemy _target;
+    private float _damage;
     public float speed = 20f;
 
-    public void Seek(Transform target)
+    public void Seek(AbstractEnemy target, float damage)
     {
         _target = target;
+        _damage = damage;
     }
 
     // Start is called before the first frame update
@@ -21,13 +24,13 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_target == null)
+        if (_target == null || _target.IsDestroyed())
         {
             Destroy(gameObject);
             return;
         }
 
-        Vector3 dir = _target.position - transform.position;
+        Vector3 dir = _target.transform.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame)
@@ -41,6 +44,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
+        _target.ApplyDamage(_damage);
         Destroy(gameObject);
     }
 }

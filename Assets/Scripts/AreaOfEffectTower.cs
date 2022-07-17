@@ -56,7 +56,7 @@ public class AreaOfEffectTower : AbstractTower
 
     IEnumerator FadeOutDamageArea(GameObject targetEffectObject)
     {
-        float fadeOutTime = 0.9f / FireRate;
+        float fadeOutTime = 0.8f / FireRate;
         float startFadeTime = Time.fixedTime;
         float currentFadeTime = startFadeTime;
 
@@ -68,10 +68,11 @@ public class AreaOfEffectTower : AbstractTower
         {
             float f = (currentFadeTime - startFadeTime) / fadeOutTime;
             component.material.color = new Color(color.r, color.g, color.b, (1 - f) * color.a);
-            Debug.Log("color = " + component.material.color);
             yield return new WaitForSeconds(fadeDelay);
             currentFadeTime = Time.fixedTime;
         }
+
+        Destroy(targetEffectObject);
     }
 
     private IEnumerable<AbstractEnemy> FindAllEnemiesInRange()

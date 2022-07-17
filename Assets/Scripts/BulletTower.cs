@@ -44,8 +44,6 @@ public class BulletTower : SingleTargetTower
     {
         GameObject bulletGameObject = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGameObject.GetComponent<Bullet>();
-        bullet.Seek(targetEntity.transform);
-        
-        targetEntity.ApplyDamage(Damage);
+        bullet.Seek(targetEntity, Damage);
     }
 }
