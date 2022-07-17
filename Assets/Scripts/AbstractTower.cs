@@ -25,8 +25,6 @@ public abstract class AbstractTower : MonoBehaviour
         if (!graphic) throw new Exception("Could not find SpriteRenderer");
     }
 
-    protected abstract void Shoot();
-
     public void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, Range);

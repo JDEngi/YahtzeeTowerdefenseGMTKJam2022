@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8989169627055491810}
   - component: {fileID: -4106566707261123263}
   - component: {fileID: 4870655070082667785}
-  - component: {fileID: 5710887153550828343}
   - component: {fileID: 685523571308006835}
   - component: {fileID: 8516885865993697543}
   m_Layer: 0
@@ -87,25 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5710887153550828343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077656677856881059}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e9e45ab1a8b6544688d60585c25cc6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameOfEntityContainer: Entities
-  BuildCost: 3
-  Damage: 2
-  Range: 3
-  bulletPrefab: {fileID: 3495728417599305633, guid: 8d0ac5bb4a975fb4586a547830d4551f, type: 3}
-  firePoint: {fileID: 2556958370110705485}
-  fireRate: 3
 --- !u!120 &685523571308006835
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -219,12 +199,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
   BuildCost: 3
-  Damage: 0.1
+  Damage: 1
   Range: 4
-  bulletPrefab: {fileID: 0}
   firePoint: {fileID: 2556958370110705485}
   lineRenderer: {fileID: 685523571308006835}
-  fireRate: 50
 --- !u!1 &1759461227395905115
 GameObject:
   m_ObjectHideFlags: 0

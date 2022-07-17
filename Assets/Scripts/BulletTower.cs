@@ -40,7 +40,7 @@ public class BulletTower : SingleTargetTower
             fireCountdown = 1f / fireRate;
         }
     }
-    protected override void Shoot()
+    protected void Shoot()
     {
         GameObject bulletGameObject = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGameObject.GetComponent<Bullet>();

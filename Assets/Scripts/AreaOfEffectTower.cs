@@ -12,8 +12,6 @@ public class AreaOfEffectTower : AbstractTower
     public float FireRate = 1f;
     private float FireCountdown = 0f;
 
-    public float FadeOutTime = 1f;
-
     // Start is called before the first frame update
     public new void Start()
     {
@@ -53,18 +51,6 @@ public class AreaOfEffectTower : AbstractTower
     {
         GameObject instance = Instantiate(EffectGameObject, transform);
         instance.transform.localScale = new Vector3(Range, Range, Range);
-        StartCoroutine(FadeOutDamageArea(instance));
-    }
-
-    IEnumerator FadeOutDamageArea(GameObject gameObject)
-    {
-        int fadeSteps = 100;
-        for (int i = 0; i < fadeSteps; i++)
-        {
-            Color color = gameObject.GetComponent<Renderer>().material.color;
-            gameObject.GetComponent<Renderer>().material.color = new Color(color.r, color.g, color.b, i / fadeSteps);
-        }
-        yield return new WaitForSeconds(FadeOutTime/fadeSteps);
     }
 
     private IEnumerable<AbstractEnemy> FindAllEnemiesInRange()
@@ -75,9 +61,5 @@ public class AreaOfEffectTower : AbstractTower
             float distance = Vector3.Distance(enemy.transform.position, transform.position);
             if (distance < Range) yield return enemy;
         }
-    }
-
-    protected override void Shoot()
-    {
     }
 }

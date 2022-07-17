@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entites
   BuildCost: 3
-  Damage: 8
+  Damage: 10
   Range: 2
   bulletPrefab: {fileID: 3495728417599305633, guid: 8d0ac5bb4a975fb4586a547830d4551f, type: 3}
   firePoint: {fileID: 6492540825077477291}
@@ -113,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05d2bdef58e7cbe4ba7ea4c2db8f4019, type: 2}
+  - {fileID: 2100000, guid: 01be7014bf4667a4da949469015900c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

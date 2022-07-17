@@ -94,7 +94,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05d2bdef58e7cbe4ba7ea4c2db8f4019, type: 2}
+  - {fileID: 2100000, guid: 78a1d657c99ba5540ad983ef82607633, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
-  BuildCost: 0
-  Damage: 0
-  Range: 0
+  BuildCost: 3
+  Damage: 1
+  Range: 3
   EffectGameObject: {fileID: 2234495598702851336, guid: 3c3d3520a9ff29e41bf8a2c419844300, type: 3}
-  FireRate: 1
+  FireRate: 0.4
