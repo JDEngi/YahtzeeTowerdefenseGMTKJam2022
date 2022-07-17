@@ -124,22 +124,22 @@ public class DiceRoller : MonoBehaviour
 
             if (sameNumbers == 3)
             {
-                EnableButton(0);
+                EnableButton(0, i);
                 //Debug.Log("You threw a three of a kind!");
             }
             else if (sameNumbers == 4)
             {
-                EnableButton(1);
+                EnableButton(1, i);
                 //Debug.Log("You threw a carre!");
             }
             else if (sameNumbers == 5)
             {
-                EnableButton(4);
+                EnableButton(4, i);
                 //Debug.Log("You threw a Yathzee!");
             }
             else if (sameNumbers >= 6)
             {
-                EnableButton(5);
+                EnableButton(5, i);
                 //Debug.Log("You threw a MEGA Yathzee!");
             }
         }
@@ -161,48 +161,48 @@ public class DiceRoller : MonoBehaviour
             }
             if (streetCount == 3)
             {
-                EnableButton(0);
+                EnableButton(0, i);
                 //Debug.Log("You threw a tiny street!");
             }
             else if (streetCount == 4)
             {
-                EnableButton(1);
+                EnableButton(1, i);
                 //Debug.Log("You threw a small street!");
             }
             else if (streetCount == 5)
             {
-                EnableButton(2);
+                EnableButton(2, i);
                 //Debug.Log("You threw a big street!");
             }
             else if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
             {
-                EnableButton(4);
+                EnableButton(4, i); //The powerlevel is always 1
                 //Debug.Log("You threw a huge street!");
             }
             streetCount = 0;
         }
 
         //This is for detecting full house
-        bool detectedPair = false;
-        bool detectedThreeOfAKind = false;
+        int detectedPair = 0;
+        int detectedThreeOfAKind = 0;
         for (int i = 0; i < 6; i++)
         {
             if (sameNumbersList[i] >= 3)
             {
-                if (detectedThreeOfAKind)
+                if (detectedThreeOfAKind > 0)
                 {
-                    detectedPair = true;
+                    detectedPair = i;
                 }
-                detectedThreeOfAKind = true;
+                detectedThreeOfAKind = i;
             }
             else if (sameNumbersList[i] == 2)
             {
-                detectedPair = true;
+                detectedPair = i;
             }
         }
-        if (detectedPair && detectedThreeOfAKind)
+        if (detectedPair > 0 && detectedThreeOfAKind > 0)
         {
-            EnableButton(3);
+            EnableButton(3, Mathf.CeilToInt((detectedPair + detectedThreeOfAKind) / 2));
             //Debug.Log("You threw a full house!");
         }
     }
@@ -215,7 +215,7 @@ public class DiceRoller : MonoBehaviour
         }
     }
     
-    private void EnableButton(int buttonNumber)
+    private void EnableButton(int buttonNumber, int powerlevel)
     {
         buttons[buttonNumber].interactable = true;
         //buttons[buttonNumber].powerLevel = 1;
