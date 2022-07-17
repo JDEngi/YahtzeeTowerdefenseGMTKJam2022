@@ -33,10 +33,20 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDice()
     {
-        foreach (SingleDice dice in dices)
+        StartCoroutine(RollTheDicesAnimated());
+    }
+
+    IEnumerator RollTheDicesAnimated()
+    {
+        int numberOfAnimatedRolls = 5;
+        for (int i = 0; i < numberOfAnimatedRolls; i++)
         {
-            int rolledNumber = Mathf.RoundToInt(Random.Range(0.5f, 6.5f));
-            dice.ChangeNumber(rolledNumber);
+            foreach (SingleDice dice in dices)
+            {
+                int rolledNumber = Mathf.RoundToInt(Random.Range(0.5f, 6.5f));
+                dice.ChangeNumber(rolledNumber);  //Only the last throw must change the number.
+            }
+            yield return new WaitForSeconds(.05f * i);
         }
         CheckForCombos();
     }
