@@ -27,7 +27,6 @@ public class AreaOfEffectTower : AbstractTower
         }
         else
         {
-            ShowDamageArea();
 
             ICollection<AbstractEnemy> targets = FindAllEnemiesInRange().AsReadOnlyCollection();
 
@@ -38,6 +37,7 @@ public class AreaOfEffectTower : AbstractTower
                 return;
             }
 
+            ShowDamageArea();
             foreach (AbstractEnemy enemy in targets)
             {
                 enemy.ApplyDamage(Damage);
@@ -50,7 +50,28 @@ public class AreaOfEffectTower : AbstractTower
     private void ShowDamageArea()
     {
         GameObject instance = Instantiate(EffectGameObject, transform);
-        instance.transform.localScale = new Vector3(Range, Range, Range);
+        instance.transform.localScale = new Vector3(Range * 10, 1, Range * 10);
+        StartCoroutine(FadeOutDamageArea(instance));
+    }
+
+    IEnumerator FadeOutDamageArea(GameObject targetEffectObject)
+    {
+        float fadeOutTime = 0.9f / FireRate;
+        float startFadeTime = Time.fixedTime;
+        float currentFadeTime = startFadeTime;
+
+        Renderer component = targetEffectObject.GetComponent<Renderer>();
+        Color color = component.material.color;
+        float fadeDelay = 0.1f;
+
+
+        while (currentFadeTime < startFadeTime + fadeOutTime)
+        {
+            float f = (currentFadeTime - startFadeTime) / fadeOutTime;
+            component.material.color = new Color(color.r, color.g, color.b, (1 - f) * color.a);
+            yield return new WaitForSeconds(fadeDelay);
+            currentFadeTime = Time.fixedTime;
+        }
     }
 
     private IEnumerable<AbstractEnemy> FindAllEnemiesInRange()

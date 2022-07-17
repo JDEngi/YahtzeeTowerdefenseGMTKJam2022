@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerOptionScript : MonoBehaviour
 {
-    public int power;
+    public int power = 1;
 
     public GameObject[] TowerPrefabs;
 
