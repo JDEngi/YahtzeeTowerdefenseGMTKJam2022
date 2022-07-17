@@ -1,4 +1,3 @@
-
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,20 +6,22 @@ public abstract class AbstractTower : MonoBehaviour
 {
     protected GameObject entityContainer;
 
-    [Header("Unity")]
-    public string NameOfEntityContainer;
-    public Sprite Graphic;
+    [Header("Unity")] public string NameOfEntityContainer;
 
-    [Header("Attributes")]
-    public int BuildCost;
+    [Header("Attributes")] public int BuildCost;
     public float Damage;
     public float Range;
+
+    private MeshRenderer graphic;
 
     // Start is called before the first frame update
     public void Start()
     {
         entityContainer = GameObject.Find(NameOfEntityContainer);
         if (!entityContainer) throw new Exception("Could not find object with name " + NameOfEntityContainer);
+
+        graphic = GetComponent<MeshRenderer>();
+        if (!graphic) throw new Exception("Could not find SpriteRenderer");
     }
 
     protected abstract void Shoot();
@@ -54,6 +55,7 @@ public abstract class SingleTargetTower : AbstractTower
             targetEntity = SearchEnemyToShoot();
         }
     }
+
     private AbstractEnemy SearchEnemyToShoot()
     {
         AbstractEnemy[] allEnemies = entityContainer.GetComponentsInChildren<AbstractEnemy>();
