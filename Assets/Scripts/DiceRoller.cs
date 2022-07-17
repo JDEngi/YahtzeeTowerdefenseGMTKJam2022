@@ -6,12 +6,12 @@ using TMPro;
 
 public class DiceRoller : MonoBehaviour
 {
-    //public TMP_Text diceText;
     public SingleDice diceOriginal;
     private GameObject diceContainer;
     private List<SingleDice> dices;
     public Button[] buttons;
-    //private List<>
+    public TMP_Text RerollsLeftText;
+    private int RerollsLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class DiceRoller : MonoBehaviour
         {
             AddDice();
         }
+        RerollsLeft = 2;
     }
 
     // Update is called once per frame
@@ -31,10 +32,35 @@ public class DiceRoller : MonoBehaviour
 
     }
 
+    private void LowerRerolls()
+    {
+        RerollsLeft--;
+        SetRerollsText();
+    }
+
+    private void SetRerollsText()
+    {
+        RerollsLeftText.text = "Rerolls left: " + RerollsLeft;
+    }
+
+    private void UnlockAllDices()
+    {
+        foreach (SingleDice dice in dices)
+        {
+            dice.Unlock();
+        }
+    }
+
     public void RollDice()
     {
+        if (RerollsLeft <= 0)
+        {
+            UnlockAllDices();
+            RerollsLeft = 3;
+        }
         StartCoroutine(RollTheDicesAnimated());
     }
+
 
     IEnumerator RollTheDicesAnimated()
     {
@@ -44,10 +70,11 @@ public class DiceRoller : MonoBehaviour
             foreach (SingleDice dice in dices)
             {
                 int rolledNumber = Mathf.RoundToInt(Random.Range(0.5f, 6.5f));
-                dice.ChangeNumber(rolledNumber);  //Only the last throw must change the number.
+                dice.ChangeNumber(rolledNumber);
             }
             yield return new WaitForSeconds(.05f * i);
         }
+        LowerRerolls();
         CheckForCombos();
     }
 
@@ -191,5 +218,6 @@ public class DiceRoller : MonoBehaviour
     private void EnableButton(int buttonNumber)
     {
         buttons[buttonNumber].interactable = true;
+        //buttons[buttonNumber].powerLevel = 1;
     }
 }
