@@ -27,7 +27,6 @@ public class AreaOfEffectTower : AbstractTower
         }
         else
         {
-
             ICollection<AbstractEnemy> targets = FindAllEnemiesInRange().AsReadOnlyCollection();
 
             // if we have no new target, do nothing
@@ -62,7 +61,7 @@ public class AreaOfEffectTower : AbstractTower
 
         Renderer component = targetEffectObject.GetComponent<Renderer>();
         Color color = component.material.color;
-        float fadeDelay = 0.1f;
+        float fadeDelay = 1f/60f;
 
         while (currentFadeTime < startFadeTime + fadeOutTime)
         {

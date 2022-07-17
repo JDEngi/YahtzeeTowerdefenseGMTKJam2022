@@ -11,7 +11,7 @@ public class LaserTower : SingleTargetTower
     //[Header("Attributes laser tower")]
     private float fireCountdown = 0f;
 
-    private static float DAMAGE_DELAY = 0.2f;
+    private static float DAMAGE_DELAY = 0.1f;
 
     // Start is called before the first frame update
     public new void Start()

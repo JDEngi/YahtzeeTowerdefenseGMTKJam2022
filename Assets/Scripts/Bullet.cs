@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
     private AbstractEnemy _target;
     private float _damage;
-    public float speed = 20f;
+    public float speed = 30f;
 
     public void Seek(AbstractEnemy target, float damage)
     {

@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
   BuildCost: 5
-  Damage: 1
+  Damage: 0.5
   Range: 4
   firePoint: {fileID: 6492540825077477291}
   lineRenderer: {fileID: -8880340772307674971}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -3814347510761234987}
   - component: {fileID: -3704622772704494137}
   m_Layer: 0
-  m_Name: AreaEffectGraphic
+  m_Name: AreaEffectQueen
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ea2d40d709a0ff458bb71bf4639c66d, type: 2}
+  - {fileID: 2100000, guid: 86312cb1700a9b743b5c791414d27f33, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
