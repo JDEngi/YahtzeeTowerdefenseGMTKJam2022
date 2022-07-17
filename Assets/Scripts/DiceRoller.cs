@@ -221,7 +221,7 @@ public class DiceRoller : MonoBehaviour
             }
             if (streetCount >= 5)
             {
-                EnableButton(2, 0);
+                EnableButton(2, 1);
                 //Debug.Log("You threw a big street!");
             }
             if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
