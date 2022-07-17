@@ -65,7 +65,7 @@ public class DiceRoller : MonoBehaviour
         {
             AddDice();
         }
-        RerollsLeft = 2;
+        RerollsLeft = 3;
     }
 
     // Start is called before the first frame update
@@ -172,22 +172,22 @@ public class DiceRoller : MonoBehaviour
             sameNumbersList.Add(sameNumbers);
             //Debug.Log("for " + i + "there is " + sameNumbers + " times the same number");
 
-            if (sameNumbers == 3)
+            if (sameNumbers >= 3)
             {
                 EnableButton(0, i);
                 //Debug.Log("You threw a three of a kind!");
             }
-            else if (sameNumbers == 4)
+            if (sameNumbers >= 4)
             {
                 //EnableButton(1, i);
                 //Debug.Log("You threw a carre!");
             }
-            else if (sameNumbers == 5)
+            if (sameNumbers >= 5)
             {
                 EnableButton(4, i);
                 //Debug.Log("You threw a Yathzee!");
             }
-            else if (sameNumbers >= 6)
+            if (sameNumbers >= 6)
             {
                 EnableButton(5, i);
                 //Debug.Log("You threw a MEGA Yathzee!");
@@ -209,22 +209,22 @@ public class DiceRoller : MonoBehaviour
                     streetCount++;
                 }
             }
-            if (streetCount == 3)
+            if (streetCount >= 3)
             {
                 //EnableButton(0, i);
                 //Debug.Log("You threw a tiny street!");
             }
-            else if (streetCount == 4)
+            if (streetCount >= 4)
             {
                 EnableButton(1, i);
                 //Debug.Log("You threw a small street!");
             }
-            else if (streetCount == 5)
+            if (streetCount >= 5)
             {
                 EnableButton(2, i);
                 //Debug.Log("You threw a big street!");
             }
-            else if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
+            if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
             {
                 //EnableButton(4, i); //The powerlevel is always 1
                 //Debug.Log("You threw a huge street!");
@@ -252,7 +252,7 @@ public class DiceRoller : MonoBehaviour
         }
         if (detectedPair > 0 && detectedThreeOfAKind > 0)
         {
-            EnableButton(3, Mathf.CeilToInt((detectedPair + detectedThreeOfAKind) / 2));
+            EnableButton(3, Mathf.FloorToInt((detectedPair + detectedThreeOfAKind) / 2));
             //Debug.Log("You threw a full house!");
         }
     }

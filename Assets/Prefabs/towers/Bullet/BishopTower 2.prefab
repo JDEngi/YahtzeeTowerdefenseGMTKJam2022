@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
-  BuildCost: 3
+  BuildCost: 5
   Damage: 10
   Range: 2
   bulletPrefab: {fileID: 3495728417599305633, guid: 8d0ac5bb4a975fb4586a547830d4551f, type: 3}
