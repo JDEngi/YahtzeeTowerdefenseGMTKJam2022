@@ -36,6 +36,11 @@ public class SingleDice : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (rend.sharedMaterial == material[6])
+        {
+            return;
+        }
+
         numberIsLocked = !numberIsLocked;
         if(numberIsLocked)
         {

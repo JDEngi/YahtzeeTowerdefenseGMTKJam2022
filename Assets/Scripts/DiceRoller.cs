@@ -179,7 +179,7 @@ public class DiceRoller : MonoBehaviour
             }
             else if (sameNumbers == 4)
             {
-                EnableButton(1, i);
+                //EnableButton(1, i);
                 //Debug.Log("You threw a carre!");
             }
             else if (sameNumbers == 5)
@@ -211,7 +211,7 @@ public class DiceRoller : MonoBehaviour
             }
             if (streetCount == 3)
             {
-                EnableButton(0, i);
+                //EnableButton(0, i);
                 //Debug.Log("You threw a tiny street!");
             }
             else if (streetCount == 4)
@@ -226,7 +226,7 @@ public class DiceRoller : MonoBehaviour
             }
             else if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
             {
-                EnableButton(4, i); //The powerlevel is always 1
+                //EnableButton(4, i); //The powerlevel is always 1
                 //Debug.Log("You threw a huge street!");
             }
             streetCount = 0;
@@ -241,13 +241,13 @@ public class DiceRoller : MonoBehaviour
             {
                 if (detectedThreeOfAKind > 0)
                 {
-                    detectedPair = i;
+                    detectedPair = i + 1;
                 }
-                detectedThreeOfAKind = i;
+                detectedThreeOfAKind = i + 1;
             }
             else if (sameNumbersList[i] == 2)
             {
-                detectedPair = i;
+                detectedPair = i + 1;
             }
         }
         if (detectedPair > 0 && detectedThreeOfAKind > 0)
