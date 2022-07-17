@@ -6,6 +6,8 @@ using TMPro;
 
 public class DiceRoller : MonoBehaviour
 {
+    public int startDices;
+
     public SingleDice diceOriginal;
     private GameObject diceContainer;
     private List<SingleDice> dices;
@@ -60,7 +62,6 @@ public class DiceRoller : MonoBehaviour
     {
         diceContainer = new GameObject();
         dices = new List<SingleDice>();
-        int startDices = 3;
         for (int i = 0; i < startDices; i++)
         {
             AddDice();

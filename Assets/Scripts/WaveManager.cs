@@ -4,11 +4,12 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] public GameObject WaveNumberUI, WaveCountdownTimeUI;
-    [SerializeField] public int BaseWaveTime = 10;
+    [SerializeField] public int BaseWaveTime;
     [SerializeField] public SpawnPoint[] WaveSpawners;
 
     public static float WaveExponentDivFactor = 100;
@@ -66,7 +67,7 @@ public class WaveManager : MonoBehaviour
     public void RestartWaves()
     {
         WaveNumber = 0;
-        WaveCountdownTime = 15; // BaseWaveTime / 2;
+        WaveCountdownTime = BaseWaveTime / 2f;
     }
 
     private void NextWave()
@@ -76,11 +77,12 @@ public class WaveManager : MonoBehaviour
 
         // Determine the time that is set for the next wave
         WaveCountdownTime = BaseWaveTime + (0.5f * WaveNumber);
+        float spawnInterval = Random.Range(Math.Min(0.5f, 2f / WaveNumber), 0.6f);
 
         foreach (SpawnPoint waveSpawner in WaveSpawners)
         {
             Debug.LogFormat("Spawning {0} enemies", WaveNumber);
-            waveSpawner.MakeWave(WaveNumber, 0.5f);
+            waveSpawner.MakeWave(WaveNumber, spawnInterval);
         }
         
     }

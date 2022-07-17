@@ -62,9 +62,9 @@ public class CellScript : MonoBehaviour
         {
             diceRoller.RemoveDice(tower.GetComponent<AbstractTower>().BuildCost);
 
-            Generator.TowerSelectionScript.SelectedTowerPrefab = null;
-            GameObject ContainedElement = Instantiate(tower, transform);
+            ContainedElement = Instantiate(tower, transform);
             ContainedElement.transform.localScale = new Vector3(1.1f, 1, -1.1f);
+            Generator.TowerSelectionScript.SelectedTowerPrefab = null;
 
             diceRoller.CheckForCombos();
         }

@@ -4556,6 +4556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da925e2212653744b8dbc3d81f904610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDices: 4
   diceOriginal: {fileID: -6445184797331598316, guid: 8bd2e3e3b2d98d54eac0fe0faff32f58, type: 3}
   buttons:
   - {fileID: 37889689}
@@ -14319,7 +14320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Until next wave: 5'
+  m_text: 'Until next wave: -'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
