@@ -8,7 +8,8 @@ public abstract class AbstractTower : MonoBehaviour
 
     [Header("Unity")] public string NameOfEntityContainer;
 
-    [Header("Attributes")] public int BuildCost;
+    [Header("Attributes base tower")]
+    public int BuildCost;
     public float Damage;
     public float Range;
 
