@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class AbstractTower : MonoBehaviour
 {
@@ -58,6 +59,8 @@ public abstract class SingleTargetTower : AbstractTower
     private AbstractEnemy SearchEnemyToShoot()
     {
         AbstractEnemy[] allEnemies = entityContainer.GetComponentsInChildren<AbstractEnemy>();
+        Shuffle(allEnemies);
+        
         foreach (AbstractEnemy enemy in allEnemies)
         {
             float distance = Vector3.Distance(enemy.transform.position, transform.position);
@@ -65,5 +68,16 @@ public abstract class SingleTargetTower : AbstractTower
         }
 
         return null;
+    }
+
+    public void Shuffle<T>(T[] objects)
+    {
+        for (int i = 0; i < objects.Length; i++)
+        {
+            int rnd = Random.Range(0, objects.Length);
+            T tempGO = objects[rnd];
+            objects[rnd] = objects[i];
+            objects[i] = tempGO;
+        }
     }
 }
