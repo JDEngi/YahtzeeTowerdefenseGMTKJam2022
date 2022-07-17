@@ -57,7 +57,7 @@ public class CellScript : MonoBehaviour
 
     public void PlaceTower(GameObject tower)
     {
-        DiceRoller diceRoller = GameObject.FindObjectOfType<DiceRoller>();
+        DiceRoller diceRoller = FindObjectOfType<DiceRoller>();
         if (diceRoller)
         {
             diceRoller.RemoveDice(tower.GetComponent<AbstractTower>().BuildCost);

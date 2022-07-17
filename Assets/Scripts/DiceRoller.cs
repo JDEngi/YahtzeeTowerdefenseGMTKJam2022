@@ -9,7 +9,7 @@ public class DiceRoller : MonoBehaviour
     public SingleDice diceOriginal;
     private GameObject diceContainer;
     private List<SingleDice> dices;
-    public Button[] buttons;
+    public GameObject[] buttons;
     public TMP_Text RerollsLeftText;
     private int RerollsLeft;
     public Button RollDicesButton;
@@ -259,16 +259,20 @@ public class DiceRoller : MonoBehaviour
 
     private void DisableAllButtons()
     {
-        foreach (Button button in buttons)
+        foreach (GameObject buttonObj in buttons)
         {
+            Button button = buttonObj.GetComponent<Button>();
             button.interactable = false;
         }
     }
     
     private void EnableButton(int buttonNumber, int powerlevel)
     {
-        buttons[buttonNumber].interactable = true;
-        //buttons[buttonNumber].powerLevel = 1;
+        Button button = buttons[buttonNumber].GetComponent<Button>();
+        button.interactable = true;
+
+        TowerOptionScript selection = buttons[buttonNumber].GetComponent<TowerOptionScript>();
+        selection.power = powerlevel;
     }
 
     private void UnlockRollDicesButton()
