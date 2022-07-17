@@ -5,15 +5,21 @@ using UnityEngine;
 
 public class AbstractTower : MonoBehaviour
 {
-    public string NameOfEntityContainer;
-    public float Range;
-    public float Cooldown;
-    public float Damage;
-    public int BuildCost;
-
-    private float currentCooldown;
     private GameObject entityContainer;
     private AbstractEnemy targetEntity;
+
+    [Header("Attributes")]
+    public int BuildCost;
+    public float Damage;
+    public float Range;
+
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+
+    [Header("Unity")]
+    public string NameOfEntityContainer;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
 
     // Start is called before the first frame update
     public void Start()
@@ -25,9 +31,9 @@ public class AbstractTower : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (currentCooldown > 0)
+        if (fireCountdown > 0)
         {
-            currentCooldown -= Time.deltaTime;
+            fireCountdown -= Time.deltaTime;
         }
         else
         {
@@ -50,15 +56,31 @@ public class AbstractTower : MonoBehaviour
             // if we have no new target, do nothing
             if (targetEntity == null)
             {
-                currentCooldown = 0;
                 return;
             }
 
-            Debug.Log("Shoot!");
-
-            targetEntity.ApplyDamage(Damage);
-            currentCooldown += Cooldown;
+            // Shoot
+            if (fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
         }
+    }
+
+    private void Shoot()
+    {
+        GameObject bulletGameObject = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGameObject.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            bullet.Seek(targetEntity.transform);
+        }
+
+
+        Debug.Log("Shoot!");
+        targetEntity.ApplyDamage(Damage);
     }
 
     private AbstractEnemy SearchEnemyToShoot()
