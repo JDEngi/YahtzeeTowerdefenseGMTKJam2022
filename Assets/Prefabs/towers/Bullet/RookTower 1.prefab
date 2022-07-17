@@ -79,12 +79,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entites
-  BuildCost: 0
-  Damage: 0
-  Range: 0
+  BuildCost: 3
+  Damage: 2
+  Range: 2.5
   bulletPrefab: {fileID: 3495728417599305633, guid: 8d0ac5bb4a975fb4586a547830d4551f, type: 3}
   firePoint: {fileID: 6492540825077477291}
-  fireRate: 1
+  fireRate: 0.4
 --- !u!33 &7917916089540418779
 MeshFilter:
   m_ObjectHideFlags: 0

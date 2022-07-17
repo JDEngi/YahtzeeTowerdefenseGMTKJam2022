@@ -40,10 +40,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6416561326393300435}
+  - component: {fileID: 3628274297206705954}
   - component: {fileID: 7917916089540418779}
   - component: {fileID: -3670123276239788957}
   m_Layer: 0
-  m_Name: PawnTower 1
+  m_Name: RookTower 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,6 +66,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3628274297206705954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752377076213532028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9e45ab1a8b6544688d60585c25cc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameOfEntityContainer: Entites
+  BuildCost: 3
+  Damage: 2
+  Range: 4.5
+  bulletPrefab: {fileID: 3495728417599305633, guid: 8d0ac5bb4a975fb4586a547830d4551f, type: 3}
+  firePoint: {fileID: 6492540825077477291}
+  fireRate: 0.55
 --- !u!33 &7917916089540418779
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -93,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05d2bdef58e7cbe4ba7ea4c2db8f4019, type: 2}
+  - {fileID: 2100000, guid: 2e359388b603d7045b5794ae55e6e200, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
