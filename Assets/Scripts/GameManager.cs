@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
 
     private GameStates State;
 
-    // Spawners
-    public SpawnPoint[] SpawnPoints;
+
 
     // Spawn timer that calls the spawn function
     public float initialCountDownTime = 5;
@@ -52,11 +51,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateState(GameStates.START);
-        currentWaveCountDownTime = initialCountDownTime;
         currentDiceCountDownTime = diceCountdownTime;
-
-        // Now activated automatically, should be moved to a UI button
-        //StartNewGame();
     }
 
     public void HandleStateStart()
@@ -132,7 +127,7 @@ public class GameManager : MonoBehaviour
     {
         if (State == GameStates.RUN)
         {
-            UpdateWave();
+            //UpdateWave();
             UpdateDiceAdd();
 
             if (EnemyGoalReference.GetComponent<EnemyGoal>().HealthPoints <= 0)
@@ -168,21 +163,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void UpdateWave()
-    {        
-        // Update waves
-        currentWaveCountDownTime -= Time.deltaTime;
-        if (currentWaveCountDownTime <= 0)
-        {
-            WaveNumber += 1;
+    //void UpdateWave()
+    //{        
+    //    // Update waves
+    //    currentWaveCountDownTime -= Time.deltaTime;
+    //    if (currentWaveCountDownTime <= 0)
+    //    {
+    //        WaveNumber += 1;
 
-            foreach (SpawnPoint spawnPoint in SpawnPoints)
-            {
-                spawnPoint.MakeWave(WaveNumber, 0.5f);
-            }
-            currentWaveCountDownTime = WaveTime;
-        }
-    }
+    //        foreach (SpawnPoint spawnPoint in SpawnPoints)
+    //        {
+    //            spawnPoint.MakeWave(WaveNumber, 0.5f);
+    //        }
+    //        currentWaveCountDownTime = WaveTime;
+    //    }
+    //}
 
     internal static void AddScore(int killvalue)
     {
