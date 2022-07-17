@@ -66,7 +66,7 @@ public class WaveManager : MonoBehaviour
     public void RestartWaves()
     {
         WaveNumber = 0;
-        WaveCountdownTime = BaseWaveTime / 2;
+        WaveCountdownTime = 15; // BaseWaveTime / 2;
     }
 
     private void NextWave()
