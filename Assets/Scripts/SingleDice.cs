@@ -47,7 +47,12 @@ public class SingleDice : MonoBehaviour
         }
     }
 
-    public void ChangeNumber(int aNumber) //, bool forAnimation)
+    public void Unlock()
+    {
+        numberIsLocked = false;
+        rend.sharedMaterial = material[number - 1];
+    }
+    public void ChangeNumber(int aNumber)
     {
         if (!numberIsLocked)
         {
