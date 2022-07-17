@@ -133,5 +133,4 @@ MonoBehaviour:
   Damage: 1
   Range: 3
   EffectGameObject: {fileID: 2234495598702851336, guid: 3c3d3520a9ff29e41bf8a2c419844300, type: 3}
-  FireRate: 0.5
-  FadeOutTime: 1
+  FireRate: 0.75
