@@ -33,6 +33,34 @@ public class WaveManager : MonoBehaviour
 
     public event Action<int> WaveChanged;
 
+    public void Awake()
+    {
+        GameManager.OnGameStateChanged += OnGameManagerOnStateChanged;
+    }
+
+    public void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= OnGameManagerOnStateChanged;
+    }
+
+    public void OnGameManagerOnStateChanged(GameStates newState)
+    {
+        switch (newState)
+        {
+            case GameStates.START:
+                RestartWaves();
+                break;
+            case GameStates.RUN:
+                break;
+            case GameStates.PAUSE:
+                break;
+            case GameStates.GAMEOVER:
+                break;
+            default:
+                break;
+        }
+    }
+
     public void RestartWaves()
     {
         WaveNumber = 0;

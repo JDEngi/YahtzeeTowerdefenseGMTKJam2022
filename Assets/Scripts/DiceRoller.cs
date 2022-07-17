@@ -13,8 +13,49 @@ public class DiceRoller : MonoBehaviour
     public TMP_Text RerollsLeftText;
     private int RerollsLeft;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void Awake()
+    {
+        GameManager.OnGameStateChanged += OnGameManagerOnStateChanged;
+    }
+
+    public void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= OnGameManagerOnStateChanged;
+    }
+
+
+    public void OnGameManagerOnStateChanged(GameStates newState)
+    {
+        switch (newState)
+        {
+            case GameStates.START:
+                // Set number of dice to 3
+                InitializeDice();
+                break;
+            case GameStates.RUN:
+                break;
+            case GameStates.PAUSE:
+                break;
+            case GameStates.GAMEOVER:
+                DestroyDices();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void DestroyDices()
+    {
+        foreach (SingleDice dice in dices)
+        {
+            Destroy(dice);
+        }
+
+        Destroy(diceContainer);
+    }
+
+    private void InitializeDice()
     {
         diceContainer = new GameObject();
         dices = new List<SingleDice>();
@@ -24,6 +65,12 @@ public class DiceRoller : MonoBehaviour
             AddDice();
         }
         RerollsLeft = 2;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
