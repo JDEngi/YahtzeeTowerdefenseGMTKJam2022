@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6497c3ae8b472724698e67b978801678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 3
+  acceleration: 0.2
+  maxSpeed: 2.5
   startHealth: 2
   killValue: 1
   healthBar: {fileID: 1577737546}

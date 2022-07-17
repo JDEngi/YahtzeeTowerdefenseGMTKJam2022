@@ -16,8 +16,16 @@ PrefabInstance:
       value: Enemy Varient Soldier
       objectReference: {fileID: 0}
     - target: {fileID: 2444399528392983626, guid: cf796e515b70f584996f568300a58b84, type: 3}
+      propertyPath: maxSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444399528392983626, guid: cf796e515b70f584996f568300a58b84, type: 3}
       propertyPath: startHealth
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444399528392983626, guid: cf796e515b70f584996f568300a58b84, type: 3}
+      propertyPath: acceleration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4875123900839301367, guid: cf796e515b70f584996f568300a58b84, type: 3}
       propertyPath: m_RootOrder

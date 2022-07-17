@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class AbstractEnemy : MonoBehaviour
 {
-    public float startSpeed = 10f;
-    private float speed;
+    public float maxSpeed;
 
-    public float startHealth = 100;
+    public float startHealth;
     private float health;
 
     public int killValue = 1;
@@ -19,38 +18,36 @@ public class AbstractEnemy : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
 
+    private Vector3 velocity;
+    private float acceleration = 0.2f;
+    private float waypointGrabDist;
 
     public void Start()
     {
         target = Waypoints.points[0];
+        waypointGrabDist = (0.02f * maxSpeed) / (acceleration);
 
         int waveNumber = FindObjectOfType<WaveManager>().WaveNumber;
         float waveExponentDivFactor = GameManager.WaveExponentDivFactor;
         float waveNumberExponentFactor = 1f + (float)waveNumber / waveExponentDivFactor;
 
-        speed = startSpeed;
         health = Mathf.Pow(startHealth, waveNumberExponentFactor);
+
+        velocity = new Vector3(0, 0, 0);
     }
 
     public void Update()
     {
         Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        Vector3 targetVelocity = dir.normalized * maxSpeed;
+        velocity += (targetVelocity - velocity) * acceleration;
 
+        transform.Translate(velocity * Time.deltaTime, Space.World);
+        
         float distance = Vector3.Distance(transform.position, target.position);
 
-        // Update speed
-        if (distance >= -1f && distance <= 1f)
-        {
-            speed = startSpeed / 2;
-        }
-        else
-        {
-            speed = startSpeed;
-        }
-
         // Update waypoint
-        if (distance <= 0.1f)
+        if (distance <= waypointGrabDist)
         {
             GetNextWaypoint();
         }

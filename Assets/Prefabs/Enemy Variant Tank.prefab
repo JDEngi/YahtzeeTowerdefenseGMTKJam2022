@@ -188,9 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6497c3ae8b472724698e67b978801678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 2
+  acceleration: 0.2
+  maxSpeed: 1
   startHealth: 4
-  killValue: 1
+  killValue: 2
   healthBar: {fileID: 4187184755301381472}
 --- !u!54 &7652854053312246232
 Rigidbody:
