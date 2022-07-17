@@ -12,6 +12,7 @@ public class DiceRoller : MonoBehaviour
     public Button[] buttons;
     public TMP_Text RerollsLeftText;
     private int RerollsLeft;
+    public Button RollDicesButton;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +65,7 @@ public class DiceRoller : MonoBehaviour
 
     IEnumerator RollTheDicesAnimated()
     {
+        LockRollDicesButton();
         int numberOfAnimatedRolls = 5;
         for (int i = 0; i < numberOfAnimatedRolls; i++)
         {
@@ -76,6 +78,7 @@ public class DiceRoller : MonoBehaviour
         }
         LowerRerolls();
         CheckForCombos();
+        UnlockRollDicesButton();
     }
 
     public int GetDiceCount()
@@ -219,5 +222,14 @@ public class DiceRoller : MonoBehaviour
     {
         buttons[buttonNumber].interactable = true;
         //buttons[buttonNumber].powerLevel = 1;
+    }
+
+    private void UnlockRollDicesButton()
+    {
+        RollDicesButton.interactable = true;
+    }
+    private void LockRollDicesButton()
+    {
+        RollDicesButton.interactable = false;
     }
 }
