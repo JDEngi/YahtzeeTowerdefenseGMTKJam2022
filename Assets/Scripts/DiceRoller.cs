@@ -252,7 +252,7 @@ public class DiceRoller : MonoBehaviour
         }
         if (detectedPair > 0 && detectedThreeOfAKind > 0)
         {
-            EnableButton(3, Mathf.CeilToInt((detectedPair + detectedThreeOfAKind) / 2));
+            EnableButton(3, Mathf.FloorToInt((detectedPair + detectedThreeOfAKind) / 2));
             //Debug.Log("You threw a full house!");
         }
     }
