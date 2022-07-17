@@ -100,3 +100,4 @@ MonoBehaviour:
   Range: 3
   Cooldown: 1
   Damage: 5
+  BuildCost: 3

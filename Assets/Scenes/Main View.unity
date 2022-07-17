@@ -1812,6 +1812,8 @@ MonoBehaviour:
   diceCountdownTime: 2
   WaveNumber: 0
   WaveTime: 10
+  MaxDice: 6
+  EnemyGoalHealth: 10
   EnemyGoalReference: {fileID: 1311927225}
 --- !u!4 &205697161 stripped
 Transform:
@@ -14253,7 +14255,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 205463638}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: StartNewGame
+        m_MethodName: StartGameRun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

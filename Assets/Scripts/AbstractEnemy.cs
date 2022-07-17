@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class AbstractEnemy : MonoBehaviour
 {
-    public float speed = 10f;
+    public float startSpeed = 10f;
+    private float speed;
 
     public float startHealth = 100;
     private float health;
 
-    public int killvalue = 1;
+    public int killValue = 1;
 
     public Image healthBar;
 
@@ -22,6 +23,7 @@ public class AbstractEnemy : MonoBehaviour
     {
         target = Waypoints.points[0];
 
+        speed = startSpeed;
         health = startHealth;
     }
 
@@ -30,7 +32,20 @@ public class AbstractEnemy : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) <= 0.1f)
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        // Update speed
+        if (distance >= -1f && distance <= 1f)
+        {
+            speed = startSpeed / 2;
+        }
+        else
+        {
+            speed = startSpeed;
+        }
+
+        // Update waypoint
+        if (distance <= 0.1f)
         {
             GetNextWaypoint();
         }
@@ -61,7 +76,7 @@ public class AbstractEnemy : MonoBehaviour
 
     private void Die()
     {
-        GameManager.AddScore(killvalue);
+        GameManager.AddScore(killValue);
 
         Destroy (gameObject);
     }

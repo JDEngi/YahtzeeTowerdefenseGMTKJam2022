@@ -51,9 +51,22 @@ public class CellScript : MonoBehaviour
         GameObject tower = Generator.TowerSelectionScript.SelectedTowerPrefab;
         if (tower == null) return;
 
-        Generator.TowerSelectionScript.SelectedTowerPrefab = null;
-        ContainedElement = Instantiate(tower, transform);
-        ContainedElement.transform.localScale = new Vector3(10, 1, 10);
+        PlaceTower(tower);
         
+    }
+
+    public void PlaceTower(GameObject tower)
+    {
+        DiceRoller diceRoller = GameObject.FindObjectOfType<DiceRoller>();
+        if (diceRoller)
+        {
+            diceRoller.RemoveDice(tower.GetComponent<AbstractTower>().BuildCost);
+
+            Generator.TowerSelectionScript.SelectedTowerPrefab = null;
+            GameObject ContainedElement = Instantiate(tower, transform);
+            ContainedElement.transform.localScale = new Vector3(10, 1, 10);
+
+            diceRoller.CheckForCombos();
+        }
     }
 }

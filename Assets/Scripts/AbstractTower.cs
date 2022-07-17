@@ -9,6 +9,7 @@ public class AbstractTower : MonoBehaviour
     public float Range;
     public float Cooldown;
     public float Damage;
+    public int BuildCost;
 
     private float currentCooldown;
     private GameObject entityContainer;

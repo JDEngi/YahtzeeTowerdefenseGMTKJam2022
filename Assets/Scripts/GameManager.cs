@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     // Game stats
     public static int score = 0;
 
+    // Max dice
+    public int MaxDice = 6;
+
+    // Goal Health
+    public int EnemyGoalHealth = 10;
+
     public GameObject EnemyGoalReference;
 
     private void Awake()
@@ -53,9 +59,22 @@ public class GameManager : MonoBehaviour
         //StartNewGame();
     }
 
-    public void StartNewGame()
+    public void HandleStateStart()
+    {
+        Time.timeScale = 0;
+        EnemyGoalReference.GetComponent<EnemyGoal>().HealthPoints = EnemyGoalHealth;
+
+    }
+
+    public void StartGameRun()
     {
         UpdateState(GameStates.RUN);
+
+        // Clean up any enemy left on the field from a previous run
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemy);
+        }
     }
 
     void GameOver()
@@ -71,8 +90,8 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameStates.START:
-                Time.timeScale = 0;
                 // Show Start menu?
+                HandleStateStart();
                 break;
             case GameStates.RUN:
                 Time.timeScale = 1;
@@ -139,7 +158,10 @@ public class GameManager : MonoBehaviour
             DiceRoller diceRoller = GameObject.FindObjectOfType<DiceRoller>();
             if (diceRoller)
             {
-                diceRoller.AddDice();
+                if (diceRoller.GetDiceCount() < MaxDice)
+                {
+                    diceRoller.AddDice();
+                }
             }
             currentDiceCountDownTime = diceCountdownTime;
         }

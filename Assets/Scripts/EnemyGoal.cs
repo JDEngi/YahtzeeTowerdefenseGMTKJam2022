@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyGoal : MonoBehaviour
 {
-    public float HealthPoints = 10;
+    public float HealthPoints;
 
     public static event Action<float> OnHealthChanged;
 

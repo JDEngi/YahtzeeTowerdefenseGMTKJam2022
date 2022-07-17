@@ -41,6 +41,11 @@ public class DiceRoller : MonoBehaviour
         CheckForCombos();
     }
 
+    public int GetDiceCount()
+    {
+        return dices.Count;
+    }
+
     public void AddDice()
     {
         SingleDice dice = Instantiate(diceOriginal) as SingleDice;        
@@ -51,17 +56,22 @@ public class DiceRoller : MonoBehaviour
         dices.Add(dice);
     }
 
-    public void RemoveDice()
+    public void RemoveDice(int numOfDice)
     {
-        if (dices.Count < 1)
+        if (dices.Count < numOfDice)
         { 
             return; 
         }
-        dices.RemoveAt(dices.Count - 1);
-        Destroy(diceContainer.transform.GetChild(diceContainer.transform.childCount - 1).gameObject);
+
+        for (int i = 0; i < numOfDice; i++)
+        {
+            int removalIdx = diceContainer.transform.childCount - 1 - i;
+            dices.RemoveAt(removalIdx);
+            Destroy(diceContainer.transform.GetChild(removalIdx).gameObject);
+        }
     }
 
-    private void CheckForCombos()
+    public void CheckForCombos()
     {
         DisableAllButtons();
         List<int> numbers = new List<int>();
