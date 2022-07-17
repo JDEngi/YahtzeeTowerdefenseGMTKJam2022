@@ -196,7 +196,7 @@ public class DiceRoller : MonoBehaviour
 
         //section for detecting streets.
         int streetCount = 0;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 3; i++)
         {
             for (int j = i; j < 6; j++)
             {
@@ -216,12 +216,12 @@ public class DiceRoller : MonoBehaviour
             }
             if (streetCount >= 4)
             {
-                EnableButton(1, i);
+                EnableButton(1, i + 1);
                 //Debug.Log("You threw a small street!");
             }
             if (streetCount >= 5)
             {
-                EnableButton(2, i);
+                EnableButton(2, 0);
                 //Debug.Log("You threw a big street!");
             }
             if (streetCount >= 6)  //street bigger then 6 is not possible (in theory...)
