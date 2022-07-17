@@ -42,10 +42,10 @@ GameObject:
   - component: {fileID: 6416561326393300435}
   - component: {fileID: 7917916089540418779}
   - component: {fileID: -3670123276239788957}
-  - component: {fileID: -530815935276194408}
-  - component: {fileID: 6178804159745408446}
+  - component: {fileID: -8880340772307674971}
+  - component: {fileID: 6020508165129011118}
   m_Layer: 0
-  m_Name: PawnTower 1
+  m_Name: KnightTower 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!120 &-530815935276194408
+--- !u!120 &-8880340772307674971
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,7 +216,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &6178804159745408446
+--- !u!114 &6020508165129011118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
   BuildCost: 0
-  Damage: 2
-  Range: 1.5
+  Damage: 1.1
+  Range: 4.4
   firePoint: {fileID: 6492540825077477291}
-  lineRenderer: {fileID: -530815935276194408}
+  lineRenderer: {fileID: -8880340772307674971}
