@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameOfEntityContainer: Entities
-  BuildCost: 0
+  BuildCost: 3
   Damage: 4.2
   Range: 1.5
   firePoint: {fileID: 6492540825077477291}
