@@ -64,7 +64,7 @@ public class CellScript : MonoBehaviour
 
             Generator.TowerSelectionScript.SelectedTowerPrefab = null;
             GameObject ContainedElement = Instantiate(tower, transform);
-            ContainedElement.transform.localScale = new Vector3(10, 1, 10);
+            ContainedElement.transform.localScale = new Vector3(1.1f, 1, -1.1f);
 
             diceRoller.CheckForCombos();
         }
