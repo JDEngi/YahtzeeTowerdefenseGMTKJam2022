@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public int WaveNumber = 0;
     public float WaveTime = 10;
 
+
+    public static float WaveExponentDivFactor = 80f;
+
     // Game stats
     public static int score = 0;
 
@@ -69,6 +72,11 @@ public class GameManager : MonoBehaviour
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             Destroy(enemy);
+        }
+
+        foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
+        {
+            Destroy(tower);
         }
     }
 

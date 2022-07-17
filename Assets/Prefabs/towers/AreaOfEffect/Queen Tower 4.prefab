@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: -6857423489600448430}
   m_Layer: 0
   m_Name: Queen Tower 4
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,3 +134,4 @@ MonoBehaviour:
   Range: 3
   EffectGameObject: {fileID: 2234495598702851336, guid: 3c3d3520a9ff29e41bf8a2c419844300, type: 3}
   FireRate: 0.7
+  FadeOutTime: 1

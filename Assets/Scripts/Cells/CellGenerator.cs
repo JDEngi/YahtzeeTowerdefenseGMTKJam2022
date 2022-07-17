@@ -22,7 +22,7 @@ public class CellGenerator : MonoBehaviour
         {
             for (int y = 0; y < NumYElements; y++)
             {
-                Object newCell = PrefabUtility.InstantiatePrefab(Prefab, transform);
+                Object newCell = Instantiate(Prefab, transform);// PrefabUtility.InstantiatePrefab(Prefab, transform);
                 Transform newCellTransform = newCell.GameObject().transform;
                 newCellTransform.position += new Vector3(x * Spacing, 0, y * Spacing);
                 newCellTransform.position += new Vector3(Spacing / 2, 0, Spacing / 2);

@@ -19,12 +19,17 @@ public class AbstractEnemy : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
 
+
     public void Start()
     {
         target = Waypoints.points[0];
 
+        int waveNumber = FindObjectOfType<WaveManager>().WaveNumber;
+        float waveExponentDivFactor = GameManager.WaveExponentDivFactor;
+        float waveNumberExponentFactor = 1f + (float)waveNumber / waveExponentDivFactor;
+
         speed = startSpeed;
-        health = startHealth;
+        health = Mathf.Pow(startHealth, waveNumberExponentFactor);
     }
 
     public void Update()

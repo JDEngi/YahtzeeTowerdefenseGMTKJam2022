@@ -11,6 +11,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] public int BaseWaveTime = 10;
     [SerializeField] public SpawnPoint[] WaveSpawners;
 
+    public static float WaveExponentDivFactor = 100;
+
     public int WaveNumber {
         get { return _waveNumber; } 
         set 
